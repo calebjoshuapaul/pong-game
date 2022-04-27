@@ -49,7 +49,8 @@ document.addEventListener('mousemove', e => {
 })
 
 document.addEventListener('touchmove', e => {
-    playerPaddle.position = (e.y / window.innerHeight) * 100;
+    e.preventDefault();
+    playerPaddle.position = (e.touches[0].pageY / window.innerHeight) * 100;
 })
 
 window.requestAnimationFrame(update);
