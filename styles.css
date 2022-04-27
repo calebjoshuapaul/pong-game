@@ -1,0 +1,64 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--background-color);
+}
+
+:root {
+    --hue: 200;
+    --saturation: 50%;
+    --foreground-color: hsl(var(--hue), var(--saturation), 75%);
+    --background-color: hsl(var(--hue), var(--saturation), 25%);
+}
+
+.paddle {
+    --position: 50;
+
+    position: absolute;
+    height: 10vh;
+    width: 1vh;
+    top: calc(var(--position) * 1vh);
+    transform: translateY(-50%);
+    background-color: var(--foreground-color);
+}
+
+.paddle.left {
+    left: 1vw;
+}
+
+.paddle.right {
+    right: 1vw;
+}
+
+.ball {
+    --x: 50;
+    --y: 50;
+
+    position: absolute;
+    background-color: var(--foreground-color);
+    height: 2.5vh;
+    width: 2.5vh;
+    border-radius: 50%;
+    top: calc(var(--y) * 1vh);
+    left: calc(var(--x) * 1vw);
+    transform: translate(-50%, -50%);
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    font-size: 7vh;
+    font-weight: bold;
+    color: var(--foreground-color);
+    text-align: center;
+    margin: 2.5vh 0;
+    opacity: .5;
+}
+
+.score > * {
+    flex-grow: 1;
+    flex-basis: 0;
+}
